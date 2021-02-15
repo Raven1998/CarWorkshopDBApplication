@@ -1,0 +1,9 @@
+﻿<Application x:Class="CarWorkshopDBApplication.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:CarWorkshopDBApplication"
+             >
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
