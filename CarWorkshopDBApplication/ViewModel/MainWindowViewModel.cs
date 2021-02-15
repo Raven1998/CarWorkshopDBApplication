@@ -11,21 +11,21 @@ namespace CarWorkshopDBApplication.ViewModel
     {
         public MainWindowViewModel()
         {
-            OpenClientsCommand = new DelegateCommand(OpenClients);
-            OpenCarsCommand = new DelegateCommand(OpenCars);
-            OpenRepairsCommand = new DelegateCommand(OpenRepairs);
-            OpenMechanicsCommand = new DelegateCommand(OpenMechanics);
+            OpenDatabaseExplorerCommand = new DelegateCommand(OpenDatabaseExplorer);
+            OpenGitRepoCommand = new DelegateCommand(OpenGitRepo);
+            ExitCommand = new DelegateCommand(Exit);
+            
         }
 
 
         public string Title { get; set; } = "CarWorkshopDatabase";
 
-        public DelegateCommand OpenClientsCommand { get; set; }
-        public DelegateCommand OpenCarsCommand { get; set; }
-        public DelegateCommand OpenRepairsCommand { get; set; }
-        public DelegateCommand OpenMechanicsCommand { get; set; }
+        public DelegateCommand OpenDatabaseExplorerCommand { get; set; }
+        public DelegateCommand OpenGitRepoCommand { get; set; }
+        public DelegateCommand ExitCommand { get; set; }
+       
 
-        public void OpenClients()
+        public void OpenDatabaseExplorer()
         {
 
             ShellViewModel viewModel = new ShellViewModel();
@@ -34,31 +34,20 @@ namespace CarWorkshopDBApplication.ViewModel
 
         }
 
-        public void OpenCars()
+        public void OpenGitRepo()
         {
 
-            ShellViewModel viewModel = new ShellViewModel();
-            Shell s1 = new Shell(viewModel);
-            s1.Show();
+            System.Diagnostics.Process.Start("https://github.com/Raven1998/CarWorkshopDBApplication");
 
         }
 
-        public void OpenRepairs()
+        public void Exit()
         {
 
-            ShellViewModel viewModel = new ShellViewModel();
-            Shell s1 = new Shell(viewModel);
-            s1.Show();
+            //TO DO CLOSE BUTTON IN MVVM
 
         }
 
-        public void OpenMechanics()
-        {
-
-            ShellViewModel viewModel = new ShellViewModel();
-            Shell s1 = new Shell(viewModel);
-            s1.Show();
-
-        }
+      
     }
 }

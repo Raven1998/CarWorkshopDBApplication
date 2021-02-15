@@ -15,8 +15,8 @@
             <RowDefinition Height="70"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Content="Table Explorer" Height="80" Width="300" Grid.Row="1" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
-        <Button Height="80" Width="300" Grid.Row="2"></Button>
-        <Button Height="80" Width="300" Grid.Row="3"></Button>
+        <Button Content="Table Manager" Command="{Binding OpenDatabaseExplorerCommand}" Height="80" Width="310" Grid.Row="1" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
+        <Button Content="Github Repo" Command="{Binding OpenGitRepoCommand}" Height="80" Width="310" Grid.Row="2" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
+        <Button Content="Exit" Command="{Binding ExitCommand}" Height="80" Width="310" Grid.Row="3" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
     </Grid>
 </Window>
