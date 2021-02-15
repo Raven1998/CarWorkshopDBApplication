@@ -5,18 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarWorkshopDBApplication.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="400" MaxWidth="400" MaxHeight="500" MinWidth="400" MinHeight="500" Background="Black">
+        Title="MainWindow" Height="550" Width="405" MaxWidth="405" MaxHeight="550" MinWidth="405" MinHeight="550" Background="Black">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="130"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Content="Table Manager" Command="{Binding OpenDatabaseExplorerCommand}" Height="80" Width="310" Grid.Row="1" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
-        <Button Content="Github Repo" Command="{Binding OpenGitRepoCommand}" Height="80" Width="310" Grid.Row="2" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
-        <Button Content="Exit" Command="{Binding ExitCommand}" Height="80" Width="310" Grid.Row="3" Background="Black" BorderBrush="#FF7E0000" Foreground="#FF7E0000" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
+        <Button Content="Table Manager" Command="{Binding OpenDatabaseExplorerCommand}" Height="80" Width="310" Grid.Row="1" Background="Black" BorderBrush="White" Foreground="White" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
+        <Button Content="Github Repo" Command="{Binding OpenGitRepoCommand}" Height="80" Width="310" Grid.Row="2" Background="Black" BorderBrush="White" Foreground="White" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
+        <Button Content="Exit" Command="{Binding ExitCommand}" Height="80" Width="310" Grid.Row="3" Background="Black" BorderBrush="White" Foreground="White" FontSize="43" FontWeight="Bold" BorderThickness="3" ></Button>
+        <TextBlock Grid.Row="4" Text="Rafal Kruczkowski |Album number:12581" Foreground="White" FontWeight="Bold" FontSize="20" TextAlignment="Center" Margin="0,43,0,31"/>
+        <Image HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="125" Margin="44,10,0,0" Source="MainWindowLogo.png"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Car Workshop" VerticalAlignment="Top" Margin="156,28,0,0" Height="92" Width="185" Foreground="White" FontWeight="Bold" FontSize="35"/>
     </Grid>
 </Window>
