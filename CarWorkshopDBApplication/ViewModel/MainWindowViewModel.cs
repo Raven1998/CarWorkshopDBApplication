@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using CarWorkshopDBApplication.Views;
 using Prism.Commands;
+using CarWorkshopDBDataAccess;
+
 namespace CarWorkshopDBApplication.ViewModel
 {
     public class MainWindowViewModel : Base.VievModelBase
@@ -27,8 +29,9 @@ namespace CarWorkshopDBApplication.ViewModel
 
         public void OpenDatabaseExplorer()
         {
+            CarWorkshopDBContext context = new CarWorkshopDBContext();
 
-            ShellViewModel viewModel = new ShellViewModel();
+            ShellViewModel viewModel = new ShellViewModel(context);
             Shell s1 = new Shell(viewModel);
             s1.Show();
 
