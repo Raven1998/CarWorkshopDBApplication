@@ -35,6 +35,18 @@ namespace CarWorkshopDBApplication.ViewModel
             Shell s1 = new Shell(viewModel);
             s1.Show();
 
+            CarViewModel viewModel1 = new CarViewModel(context);
+            CarsWindow c1 = new CarsWindow(viewModel1);
+            c1.Show();
+
+            RepairViewModel viewModel2 = new RepairViewModel(context);
+            RepairsWindow r1 = new RepairsWindow(viewModel2);
+            r1.Show();
+
+            MechanicViewModel viewModel3 = new MechanicViewModel(context);
+            MechanicsWindow m1 = new MechanicsWindow(viewModel3);
+            m1.Show();
+
         }
 
         public void OpenGitRepo()
