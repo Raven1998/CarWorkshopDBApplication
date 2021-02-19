@@ -9,11 +9,8 @@ using System.Threading.Tasks;
 namespace CarWorkshopDBModels
 {
     [Table("Repairs")]
-    public class Repair
+    public class Repair: ModelBase
     {
-        [Key]
-        [Required]
-        public int RepairID { get; set; }
 
         [Required]
         [ForeignKey("Car")]
@@ -23,11 +20,9 @@ namespace CarWorkshopDBModels
         [Required]
         public decimal RepairPrize { get; set; }
 
-        [Required]
-        public DateTime BringingDate { get; set; }
-
-        [Required]
-        public DateTime CollectDate { get; set; }
+        public DateTime? BringingDate { get; set; }
+        //TODO
+        public DateTime? CollectDate { get; set; }
 
         [StringLength(200)]
         public string RepairDescription { get; set; }

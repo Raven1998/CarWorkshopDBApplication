@@ -9,12 +9,8 @@ using System.Threading.Tasks;
 namespace CarWorkshopDBModels
 {
     [Table("Cars")]
-    public class Car
+    public class Car:ModelBase
     {
-        [Key]
-        [Required]
-        public int CarID { get; set; }
-
         [Required]
         [ForeignKey("Client")]
         public int ClientRefID { get; set; }
@@ -36,7 +32,7 @@ namespace CarWorkshopDBModels
         [StringLength(8)]
         public string RegistrationNumber { get; set; }
 
-        public List<Repair> Repairs { get; set; }
+        public List<Repair> Repairs = new List<Repair>();
 
 
     }

@@ -13,11 +13,14 @@ namespace CarWorkshopDBApplication.ViewModel.Base
         protected VievModelBase()
         {
             RegisterCommands();
+            RegisterCollections();
         }
         protected virtual void RegisterCommands()
         {
 
         }
+
+        protected virtual void RegisterCollections() { }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

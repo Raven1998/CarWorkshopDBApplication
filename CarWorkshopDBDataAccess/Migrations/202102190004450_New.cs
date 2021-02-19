@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class CarWorkshop : DbMigration
+    public partial class New : DbMigration
     {
         public override void Up()
         {
@@ -17,6 +17,7 @@
                         Model = c.String(nullable: false, maxLength: 30),
                         VIN = c.String(nullable: false, maxLength: 15),
                         RegistrationNumber = c.String(nullable: false, maxLength: 8),
+                        ID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.CarID)
                 .ForeignKey("dbo.Clients", t => t.ClientRefID, cascadeDelete: true)
@@ -30,6 +31,7 @@
                         Surname = c.String(nullable: false, maxLength: 50),
                         Name = c.String(nullable: false, maxLength: 50),
                         PhoneNumer = c.String(nullable: false, maxLength: 15),
+                        ID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ClientID);
             
@@ -44,6 +46,7 @@
                         CollectDate = c.DateTime(nullable: false),
                         RepairDescription = c.String(maxLength: 200),
                         MechanicRefID = c.Int(nullable: false),
+                        ID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.RepairID)
                 .ForeignKey("dbo.Cars", t => t.CarRefID, cascadeDelete: true)
@@ -59,6 +62,7 @@
                         Surname = c.String(nullable: false, maxLength: 50),
                         Name = c.String(nullable: false, maxLength: 50),
                         DateOfEmployment = c.DateTime(nullable: false),
+                        ID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.MechanicID);
             

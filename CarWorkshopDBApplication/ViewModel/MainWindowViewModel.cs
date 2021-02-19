@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarWorkshopDBApplication.Views;
+﻿using CarWorkshopDBApplication.Views;
 using Prism.Commands;
 using CarWorkshopDBDataAccess;
-
+using CarWorkshopDBDataAccess.Repositories;
+using CarWorkshopDBModels;
 namespace CarWorkshopDBApplication.ViewModel
 {
     public class MainWindowViewModel : Base.VievModelBase
@@ -30,20 +26,21 @@ namespace CarWorkshopDBApplication.ViewModel
         public void OpenDatabaseExplorer()
         {
             CarWorkshopDBContext context = new CarWorkshopDBContext();
-
-            ShellViewModel viewModel = new ShellViewModel(context);
+            Repository clientRepository = new Repository(context);
+            
+            ShellViewModel viewModel = new ShellViewModel(clientRepository);
             Shell s1 = new Shell(viewModel);
             s1.Show();
 
-            CarViewModel viewModel1 = new CarViewModel(context);
+            CarViewModel viewModel1 = new CarViewModel(clientRepository);
             CarsWindow c1 = new CarsWindow(viewModel1);
             c1.Show();
 
-            RepairViewModel viewModel2 = new RepairViewModel(context);
+            RepairViewModel viewModel2 = new RepairViewModel(clientRepository);
             RepairsWindow r1 = new RepairsWindow(viewModel2);
             r1.Show();
 
-            MechanicViewModel viewModel3 = new MechanicViewModel(context);
+            MechanicViewModel viewModel3 = new MechanicViewModel(clientRepository);
             MechanicsWindow m1 = new MechanicsWindow(viewModel3);
             m1.Show();
 

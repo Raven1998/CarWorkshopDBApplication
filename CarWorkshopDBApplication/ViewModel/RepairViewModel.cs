@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarWorkshopDBDataAccess;
+using CarWorkshopDBDataAccess.Repositories;
 using CarWorkshopDBModels;
 using Prism.Commands;
 
@@ -11,18 +13,27 @@ namespace CarWorkshopDBApplication.ViewModel
 {
     public class RepairViewModel : Base.VievModelBase
     {
-        private readonly CarWorkshopDBContext _context;
-        private Repair _repair;
-        public RepairViewModel(CarWorkshopDBContext context)
+        private readonly IDBRepository _clientRepository;
+        private Repair _repair = new Repair();
+        private ObservableCollection<Repair> repairs = new ObservableCollection<Repair>();
+
+        public RepairViewModel(IDBRepository clientRepository)
         {
-            _context = context;
-            Repair = new Repair();
+            _clientRepository = clientRepository;
+            repairs = _clientRepository.GetRepairs();
         }
 
+        public ObservableCollection<Repair> Repairs
+        {
+            get { return repairs; }
+            set
+            {
+                repairs = value;
+                NotifyPropertyChanged("Repairs");
+            }
+        }
 
-        public string Title { get; set; } = "CarWorkshopDatabase";
-
-        public Repair Repair
+        public Repair CurrentRepair
         {
             get => _repair;
             set
@@ -40,8 +51,8 @@ namespace CarWorkshopDBApplication.ViewModel
 
         private void Save()
         {
-            _context.Repairs.Add(Repair);
-            _context.SaveChanges();
+            _clientRepository.AddRepair(CurrentRepair);
+            Repairs = _clientRepository.GetRepairs();
         }
     }
 }

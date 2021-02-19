@@ -7,17 +7,26 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Client.ClientID}" VerticalAlignment="Top" Width="284" Margin="388,38,0,0" BorderBrush="White" Background="Black" Foreground="White" FontSize="20" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Client.Name}" VerticalAlignment="Top" Width="284" Margin="388,94,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Client.Surname}" VerticalAlignment="Top" Width="284" Margin="388,154,0,0" BorderBrush="White" Foreground="White" Background="Black" FontSize="20" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Client.PhoneNumer}" VerticalAlignment="Top" Width="284" Margin="388,216,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="313,97,0,0" Height="36" Width="70" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Surname:" VerticalAlignment="Top" Margin="286,155,0,0" Height="41" Width="97" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="ClientID:" VerticalAlignment="Top" Margin="300,38,0,0" Height="36" Width="83" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" Margin="313,217,0,0" Height="41" Width="70" FontWeight="Bold" FontSize="20"/>
-        <Button Content="ADD" Command="{Binding SaveCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="284" Margin="388,282,0,0" Height="34" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" BorderThickness="3"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentClient.Name}" VerticalAlignment="Top" Width="284" Margin="388,48,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentClient.Surname}" VerticalAlignment="Top" Width="284" Margin="388,110,0,0" BorderBrush="White" Foreground="White" Background="Black" FontSize="20" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentClient.PhoneNumber}" VerticalAlignment="Top" Width="284" Margin="388,171,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Margin="313,48,0,0" Height="36" Width="70" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.486,1.722"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Surname:" VerticalAlignment="Top" Margin="286,111,0,0" Height="41" Width="97" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Phone:" VerticalAlignment="Top" Margin="313,172,0,0" Height="41" Width="70" FontWeight="Bold" FontSize="20" RenderTransformOrigin="0.55,1.585"/>
+        <Button Content="ADD" Command="{Binding SaveCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="284" Margin="388,242,0,0" Height="34" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" BorderThickness="3"/>
         <Image HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="217" Margin="30,38,0,0" Source="Clients.png"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Clients" VerticalAlignment="Top" Margin="30,217,0,0" Height="62" Width="217" FontWeight="Bold" FontSize="48" TextAlignment="Center"/>
+        <ListView ItemsSource="{Binding Clients}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="300,372,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ClientID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                    <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
+                    <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding PhoneNumber}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
 
 
     </Grid>

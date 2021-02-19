@@ -10,12 +10,8 @@ using System.Threading.Tasks;
 namespace CarWorkshopDBModels
 {
     [Table("Clients")]
-    public class Client
+    public class Client :ModelBase
     {
-        [Key]
-        [Required]
-        public int ClientID { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Surname { get; set; }
@@ -26,9 +22,9 @@ namespace CarWorkshopDBModels
 
         [Required]
         [StringLength(15)]
-        public string PhoneNumer { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public List<Car> Cars { get; set; }
+        public List<Car> Cars = new List<Car>();
 
     }
 }

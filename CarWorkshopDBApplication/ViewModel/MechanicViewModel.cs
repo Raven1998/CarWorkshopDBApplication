@@ -6,29 +6,40 @@ using System.Threading.Tasks;
 using CarWorkshopDBModels;
 using CarWorkshopDBDataAccess;
 using Prism.Commands;
+using System.Collections.ObjectModel;
+using CarWorkshopDBDataAccess.Repositories;
 
 namespace CarWorkshopDBApplication.ViewModel
 {
     public class MechanicViewModel : Base.VievModelBase
     {
-        private readonly CarWorkshopDBContext _context;
-        private Mechanic _mechanic;
-        public MechanicViewModel(CarWorkshopDBContext context)
+        private readonly IDBRepository _clientRepository;
+        private Mechanic _mechanic = new Mechanic();
+        private ObservableCollection<Mechanic> mechanics = new ObservableCollection<Mechanic>();
+
+        public MechanicViewModel(IDBRepository clientRepository)
         {
-            _context = context;
-            Mechanic = new Mechanic();
+            _clientRepository = clientRepository;
+            mechanics = _clientRepository.GetMechanics();
         }
 
+        public ObservableCollection<Mechanic> Mechanics
+        {
+            get { return mechanics; }
+            set
+            {
+                mechanics = value;
+                NotifyPropertyChanged("Mechanics");
+            }
+        }
 
-        public string Title { get; set; } = "CarWorkshopDatabase";
-
-        public Mechanic Mechanic
+        public Mechanic CurrentMechanic
         {
             get => _mechanic;
             set
             {
                 _mechanic = value;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged("Mechanics");
             }
 
         }
@@ -40,8 +51,8 @@ namespace CarWorkshopDBApplication.ViewModel
 
         private void Save()
         {
-            _context.Mechanics.Add(Mechanic);
-            _context.SaveChanges();
+            _clientRepository.AddMechanic(CurrentMechanic);
+            Mechanics = _clientRepository.GetMechanics();
         }
     }
 }

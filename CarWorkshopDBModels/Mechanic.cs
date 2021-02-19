@@ -9,12 +9,8 @@ using System.Threading.Tasks;
 namespace CarWorkshopDBModels
 {
     [Table("Mechanics")]
-    public class Mechanic
+    public class Mechanic: ModelBase
     {
-        [Key]
-        [Required]
-        public int MechanicID { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Surname { get; set; }
@@ -24,10 +20,10 @@ namespace CarWorkshopDBModels
         public string Name { get; set; }
 
         [Required]
-        public DateTime DateOfEmployment { get; set; }
+        [StringLength(15)]
+        public string PhoneNumber { get; set; }
 
-
-        public List<Repair> Repairs { get; set; }
+        public List<Repair> Repairs = new List<Repair>();
 
     }
 }

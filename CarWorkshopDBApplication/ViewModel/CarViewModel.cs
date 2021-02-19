@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CarWorkshopDBDataAccess;
+using CarWorkshopDBDataAccess.Repositories;
 using CarWorkshopDBModels;
 using Prism.Commands;
 
@@ -11,24 +13,33 @@ namespace CarWorkshopDBApplication.ViewModel
 {
     public class CarViewModel : Base.VievModelBase
     {
-        private readonly CarWorkshopDBContext _context;
-        private Car _car;
-        public CarViewModel(CarWorkshopDBContext context)
+        private readonly IDBRepository _clientRepository;
+        private Car _car = new Car();
+        private ObservableCollection<Car> cars = new ObservableCollection<Car>();
+
+        public CarViewModel(IDBRepository clientRepository)
         {
-            _context = context;
-            Car = new Car();
+            _clientRepository = clientRepository;
+            cars = _clientRepository.GetCars();
         }
 
+        public ObservableCollection<Car> Cars
+        {
+            get { return cars; }
+            set 
+            { 
+                cars = value;
+                NotifyPropertyChanged();
+            }
+        }
 
-        public string Title { get; set; } = "CarWorkshopDatabase";
-
-        public Car Car
+        public Car CurrentCar
         {
             get => _car;
             set
             {
                 _car = value;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged("Cars");
             }
 
         }
@@ -40,8 +51,8 @@ namespace CarWorkshopDBApplication.ViewModel
 
         private void Save()
         {
-            _context.Cars.Add(Car);
-            _context.SaveChanges();
+            _clientRepository.AddCarToClient(CurrentCar, CurrentCar.ClientRefID);
+            Cars = _clientRepository.GetCars();
         }
     }
 }

@@ -11,30 +11,43 @@ using CarWorkshopDBApplication.Views;
 using Prism.Commands;
 using CarWorkshopDBDataAccess;
 using CarWorkshopDBModels;
-
+using System.Collections.ObjectModel;
+using CarWorkshopDBDataAccess.Repositories;
 
 namespace CarWorkshopDBApplication.ViewModel
 {
     public class ShellViewModel : Base.VievModelBase
     {
-        private readonly CarWorkshopDBContext _context;
-        private Client _client;
-        public ShellViewModel(CarWorkshopDBContext context)
+        private readonly IDBRepository _clientRepository;
+        private Client _client = new Client();
+        private ObservableCollection<Client> clients = new ObservableCollection<Client>();
+
+        public ShellViewModel(IDBRepository  clientRepository)
         {
-            _context = context;
-            Client = new Client();
+            _clientRepository = clientRepository;
+            clients = _clientRepository.GetClients();
         }
 
 
         public string Title { get; set; } = "CarWorkshopDatabase";
 
-        public Client Client
+        public ObservableCollection<Client> Clients
+        {
+            get { return clients; }
+            set 
+            {
+                clients = value;
+                NotifyPropertyChanged("Clients");
+            }
+        }
+
+        public Client CurrentClient
         {
             get => _client;
             set
             {
                 _client = value;
-                NotifyPropertyChanged();
+                NotifyPropertyChanged("Clients");
             }
         
         }
@@ -46,8 +59,8 @@ namespace CarWorkshopDBApplication.ViewModel
 
         private void Save()
         {
-            _context.Clients.Add(Client);
-            _context.SaveChanges();
+            _clientRepository.AddClient(CurrentClient);
+            Clients = _clientRepository.GetClients();
         }
     }
 }

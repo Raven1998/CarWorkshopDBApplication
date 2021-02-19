@@ -12,7 +12,7 @@ namespace CarWorkshopDBApplication.Startup
     {
         protected override DependencyObject CreateShell()
         {
-            // return Container.Resolve<Views.Shell>();
+           // return Container.Resolve<Views.Shell>();
             return Container.Resolve<Views.MainWindow>();
         }
 
@@ -25,6 +25,8 @@ namespace CarWorkshopDBApplication.Startup
         {
             Application.Current.MainWindow.Show();
         }
+
+        
     }
 }
 

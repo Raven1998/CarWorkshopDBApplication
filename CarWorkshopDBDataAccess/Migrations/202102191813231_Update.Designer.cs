@@ -7,13 +7,13 @@ namespace CarWorkshopDBDataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class CarWorkshop : IMigrationMetadata
+    public sealed partial class Update : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CarWorkshop));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Update));
         
         string IMigrationMetadata.Id
         {
-            get { return "202102150215432_CarWorkshop"; }
+            get { return "202102191813231_Update"; }
         }
         
         string IMigrationMetadata.Source

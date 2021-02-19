@@ -7,20 +7,33 @@
         mc:Ignorable="d"
         Title="{Binding Title}" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Car.CarID}" VerticalAlignment="Top" Width="284" Margin="388,38,0,0" BorderBrush="White" Background="Black" Foreground="White" FontSize="20" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Car.Brand}" VerticalAlignment="Top" Width="284" Margin="388,94,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Car.Model}" VerticalAlignment="Top" Width="284" Margin="388,154,0,0" BorderBrush="White" Foreground="White" Background="Black" FontSize="20" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Car.VIN}" VerticalAlignment="Top" Width="284" Margin="388,216,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding Car.RegistrationNumber}" VerticalAlignment="Top" Width="284" Margin="388,266,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.ClientRefID}" VerticalAlignment="Top" Width="284" Margin="388,38,0,0" BorderBrush="White" Background="Black" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.Brand}" VerticalAlignment="Top" Width="284" Margin="388,94,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.Model}" VerticalAlignment="Top" Width="284" Margin="388,154,0,0" BorderBrush="White" Foreground="White" Background="Black" FontSize="20" FontWeight="Bold"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.VIN}" VerticalAlignment="Top" Width="284" Margin="388,216,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.RegistrationNumber}" VerticalAlignment="Top" Width="284" Margin="388,266,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Brand:" VerticalAlignment="Top" Margin="313,97,0,0" Height="36" Width="70" FontWeight="Bold" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Model:" VerticalAlignment="Top" Margin="313,155,0,0" Height="41" Width="70" FontWeight="Bold" FontSize="20"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="CarID:" VerticalAlignment="Top" Margin="313,38,0,0" Height="36" Width="70" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="299,38,0,0" Height="36" Width="84" FontWeight="Bold" FontSize="20"><Run Text="C"/><Run Text="lient"/><Run Text="ID:"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="VIN:" VerticalAlignment="Top" Margin="334,217,0,0" Height="41" Width="49" FontWeight="Bold" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Reg. Number:" VerticalAlignment="Top" Margin="247,267,0,0" Height="41" Width="136" FontWeight="Bold" FontSize="20"/>
         <Button Content="ADD" Command="{Binding SaveCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="284" Margin="388,332,0,0" Height="34" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" BorderThickness="3"/>
         <Image HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="217" Margin="30,38,0,0" Source="Cars.png"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cars" VerticalAlignment="Top" Margin="10,196,0,0" Height="62" Width="217" FontWeight="Bold" FontSize="48" TextAlignment="Center"/>
 
+        <ListView ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="300,372,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="CarID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                    <GridViewColumn Header="ClientRefID" DisplayMemberBinding="{Binding ClientRefID}"></GridViewColumn>
+                    <GridViewColumn Header="Brand" DisplayMemberBinding="{Binding Brand}"></GridViewColumn>
+                    <GridViewColumn Header="Model" DisplayMemberBinding="{Binding Model}"></GridViewColumn>
+                    <GridViewColumn Header="VIN" DisplayMemberBinding="{Binding VIN}"></GridViewColumn>
+                    <GridViewColumn Header="RegistrationNumber" DisplayMemberBinding="{Binding RegistrationNumber}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+
+        </ListView>
 
     </Grid>
 </Window>
