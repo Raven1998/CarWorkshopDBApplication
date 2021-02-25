@@ -108,7 +108,7 @@ namespace CarWorkshopDBDataAccess.Repositories
 
         public void AddRepair(Repair repair)
         {
-            _context.Repairs.Add(repair) 
+            _context.Repairs.Add(repair);
             _context.SaveChanges();
         }
 
