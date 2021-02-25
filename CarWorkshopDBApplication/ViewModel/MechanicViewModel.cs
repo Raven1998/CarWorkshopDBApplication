@@ -44,14 +44,26 @@ namespace CarWorkshopDBApplication.ViewModel
 
         }
         public DelegateCommand SaveCommand { get; set; }
+
+
+        private void Save()
+        {
+            _clientRepository.AddMechanic(CurrentMechanic);
+            Mechanics = _clientRepository.GetMechanics();
+        }
+
         protected override void RegisterCommands()
         {
             SaveCommand = new DelegateCommand(Save);
         }
 
-        private void Save()
+        private DelegateCommand<Mechanic> _deleteRowCommand;
+        public DelegateCommand<Mechanic> DeleteRowCommand =>
+            _deleteRowCommand ?? (_deleteRowCommand = new DelegateCommand<Mechanic>(DeleteRow));
+
+        private void DeleteRow(Mechanic parameter)
         {
-            _clientRepository.AddMechanic(CurrentMechanic);
+            _clientRepository.RemoveMechanic(parameter.ID);
             Mechanics = _clientRepository.GetMechanics();
         }
     }

@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarWorkshopDBApplication.Views"
+        x:Name="_repairsWindow"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
+        Title="Repairs" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentRepair.CarRefID}" VerticalAlignment="Top" Width="284" Margin="388,25,0,0" BorderBrush="White" Background="Black" Foreground="White" FontSize="20" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentRepair.MechanicRefID}" VerticalAlignment="Top" Width="284" Margin="388,81,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentRepair.BringingDate}" VerticalAlignment="Top" Width="284" Margin="388,141,0,0" BorderBrush="White" Foreground="White" Background="Black" FontSize="20" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentRepair.CollectDate}" VerticalAlignment="Top" Width="284" Margin="388,203,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
-        <TextBox HorizontalAlignment="Left" Height="68" TextWrapping="Wrap" Text="{Binding CurrnetRepair.RepairDescription}" VerticalAlignment="Top" Width="284" Margin="388,328,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
+        <TextBox HorizontalAlignment="Left" Height="68" TextWrapping="Wrap" Text="{Binding CurrentRepair.RepairDescription}" VerticalAlignment="Top" Width="284" Margin="388,328,0,0" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="252,84,0,0" Height="36" Width="131" FontWeight="Bold" FontSize="20"><Run Text="Mechanic ID"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Bringing Date:" VerticalAlignment="Top" Margin="232,142,0,0" Height="41" Width="151" FontWeight="Bold" FontSize="20"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="293,25,0,0" Height="36" Width="90" FontWeight="Bold" FontSize="20"><Run Text="CarID"/><Run Text=":"/></TextBlock>
@@ -26,13 +27,21 @@
         <ListView ItemsSource="{Binding Repairs}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="6,410,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="CarID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
-                    <GridViewColumn Header="ClientRefID" DisplayMemberBinding="{Binding CarRefID}"></GridViewColumn>
-                    <GridViewColumn Header="ClientRefID" DisplayMemberBinding="{Binding MechanicRefID}"></GridViewColumn>
-                    <GridViewColumn Header="Brand" DisplayMemberBinding="{Binding RepairPrize}"></GridViewColumn>
-                    <GridViewColumn Header="Model" DisplayMemberBinding="{Binding BringindDate}"></GridViewColumn>
-                    <GridViewColumn Header="VIN" DisplayMemberBinding="{Binding CollectDate}"></GridViewColumn>
-                    <GridViewColumn Header="RegistrationNumber" DisplayMemberBinding="{Binding RepairDescription}"></GridViewColumn>
+                    <GridViewColumn Header="RepairID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                    <GridViewColumn Header="CarRefID" DisplayMemberBinding="{Binding CarRefID}"></GridViewColumn>
+                    <GridViewColumn Header="MechanicRefID" DisplayMemberBinding="{Binding MechanicRefID}"></GridViewColumn>
+                    <GridViewColumn Header="Bringing Date" DisplayMemberBinding="{Binding BringingDate}"></GridViewColumn>
+                    <GridViewColumn Header="Prize" DisplayMemberBinding="{Binding RepairPrize}"></GridViewColumn>
+                    <GridViewColumn Header="Collect Date" DisplayMemberBinding="{Binding CollectDate}"></GridViewColumn>
+                    <GridViewColumn Header="Description" DisplayMemberBinding="{Binding RepairDescription}"></GridViewColumn>
+                    <GridViewColumn Header="Delete">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="ddd" Content="Delete" Command="{Binding DataContext.DeleteRowCommand, ElementName=_repairsWindow }" CommandParameter="{Binding}" ></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
 

@@ -54,5 +54,15 @@ namespace CarWorkshopDBApplication.ViewModel
             _clientRepository.AddRepair(CurrentRepair);
             Repairs = _clientRepository.GetRepairs();
         }
+
+        private DelegateCommand<Repair> _deleteRowCommand;
+        public DelegateCommand<Repair> DeleteRowCommand =>
+            _deleteRowCommand ?? (_deleteRowCommand = new DelegateCommand<Repair>(DeleteRow));
+
+        private void DeleteRow(Repair parameter)
+        {
+            _clientRepository.RemoveRepair(parameter.ID);
+            Repairs = _clientRepository.GetRepairs();
+        }
     }
 }

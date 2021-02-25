@@ -16,12 +16,11 @@ namespace CarWorkshopDBModels
         [ForeignKey("Car")]
         public int CarRefID { get; set; }
         public Car Car { get; set; }
-
+        
         [Required]
         public decimal RepairPrize { get; set; }
 
         public DateTime? BringingDate { get; set; }
-        //TODO
         public DateTime? CollectDate { get; set; }
 
         [StringLength(200)]

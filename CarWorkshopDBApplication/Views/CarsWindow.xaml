@@ -4,8 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarWorkshopDBApplication.Views"
+        x:Name="_carsWindow"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
+        Title="Cars" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.ClientRefID}" VerticalAlignment="Top" Width="284" Margin="388,38,0,0" BorderBrush="White" Background="Black" Foreground="White" FontSize="20" FontWeight="Bold"/>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentCar.Brand}" VerticalAlignment="Top" Width="284" Margin="388,94,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
@@ -30,6 +31,14 @@
                     <GridViewColumn Header="Model" DisplayMemberBinding="{Binding Model}"></GridViewColumn>
                     <GridViewColumn Header="VIN" DisplayMemberBinding="{Binding VIN}"></GridViewColumn>
                     <GridViewColumn Header="RegistrationNumber" DisplayMemberBinding="{Binding RegistrationNumber}"></GridViewColumn>
+                    <GridViewColumn Header="Delete">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="ddd" Content="Delete" Command="{Binding DataContext.DeleteRowCommand, ElementName=_carsWindow }" CommandParameter="{Binding}" ></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
 

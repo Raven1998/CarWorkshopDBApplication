@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CarWorkshopDBApplication.Views"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
+        x:Name="_mechanicWindow"
+        Title="Mechanics" Height="550" Width="800" Background="Black" Foreground="White" MinWidth="800" MinHeight="550" MaxWidth="800" MaxHeight="550">
+    
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentMechanic.Name}" VerticalAlignment="Top" Width="284" Margin="388,51,0,0" BorderBrush="White" Foreground="White" Background="Black" FontWeight="Bold" FontSize="20"/>
         <TextBox HorizontalAlignment="Left" Height="42" TextWrapping="Wrap" Text="{Binding CurrentMechanic.Surname}" VerticalAlignment="Top" Width="284" Margin="388,111,0,0" BorderBrush="White" Foreground="White" Background="Black" FontSize="20" FontWeight="Bold"/>
@@ -24,9 +26,18 @@
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
                     <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
                     <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding PhoneNumber}"></GridViewColumn>
+                    <GridViewColumn Header="Delete">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="ddd" Content="Delete" Command="{Binding DataContext.DeleteRowCommand, ElementName=_mechanicWindow }" CommandParameter="{Binding}" ></Button>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                       
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
 
         </ListView>
     </Grid>
+
 </Window>

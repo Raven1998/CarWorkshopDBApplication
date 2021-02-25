@@ -33,6 +33,16 @@ namespace CarWorkshopDBDataAccess.Repositories
             _context.SaveChanges();
         }
 
+        public void RemoveClient(int clientId)
+        {
+            var client = _context.Clients.FirstOrDefault(c => c.ID == clientId);
+            if(client != null)
+            {
+                _context.Clients.Remove(client);
+                _context.SaveChanges();
+            }
+        }
+
         public ObservableCollection<Car> GetCars()
         {
             var result = new ObservableCollection<Car>();
@@ -66,6 +76,16 @@ namespace CarWorkshopDBDataAccess.Repositories
             }
         }
 
+        public void RemoveCar(int carId)
+        {
+            var car = _context.Cars.FirstOrDefault(c => c.ID == carId);
+            if (car != null)
+            {
+                _context.Cars.Remove(car);
+                _context.SaveChanges();
+            }
+        }
+
         public void AddMechanicToRepair(Mechanic mechanic, int repairId)
         {
             var repair = _context.Repairs.FirstOrDefault(r => r.ID == repairId);
@@ -88,12 +108,18 @@ namespace CarWorkshopDBDataAccess.Repositories
 
         public void AddRepair(Repair repair)
         {
-            repair.BringingDate = null;
-            repair.CollectDate = null;
-            _context.Repairs.Add(repair);
-            //TODO
-            
+            _context.Repairs.Add(repair) 
             _context.SaveChanges();
+        }
+
+        public void RemoveRepair(int repairId)
+        {
+            var repair = _context.Repairs.FirstOrDefault(r => r.ID == repairId);
+            if (repair != null)
+            {
+                _context.Repairs.Remove(repair);
+                _context.SaveChanges();
+            }
         }
 
         public ObservableCollection<Mechanic> GetMechanics()
@@ -111,11 +137,16 @@ namespace CarWorkshopDBDataAccess.Repositories
             _context.Mechanics.Add(mechanic);
             _context.SaveChanges();
         }
-     
 
-
-
-
+        public void RemoveMechanic(int mechanicId)
+        {
+            var mechanic = _context.Mechanics.FirstOrDefault(m => m.ID == mechanicId);
+            if (mechanic != null)
+            {
+                _context.Mechanics.Remove(mechanic);
+                _context.SaveChanges();
+            }
+        }
     }
     
 }

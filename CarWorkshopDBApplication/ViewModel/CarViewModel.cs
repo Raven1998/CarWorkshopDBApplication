@@ -54,5 +54,15 @@ namespace CarWorkshopDBApplication.ViewModel
             _clientRepository.AddCarToClient(CurrentCar, CurrentCar.ClientRefID);
             Cars = _clientRepository.GetCars();
         }
+
+        private DelegateCommand<Car> _deleteRowCommand;
+        public DelegateCommand<Car> DeleteRowCommand =>
+            _deleteRowCommand ?? (_deleteRowCommand = new DelegateCommand<Car>(DeleteRow));
+
+        private void DeleteRow(Car parameter)
+        {
+            _clientRepository.RemoveCar(parameter.ID);
+            Cars = _clientRepository.GetCars();
+        }
     }
 }
