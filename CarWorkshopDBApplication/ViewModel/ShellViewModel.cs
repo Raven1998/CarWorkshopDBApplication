@@ -16,6 +16,10 @@ using CarWorkshopDBDataAccess.Repositories;
 
 namespace CarWorkshopDBApplication.ViewModel
 {
+    /// <summary>
+    /// Client ViewModel class
+    /// Contains biding commands for Client Window
+    /// </summary>
     public class ShellViewModel : Base.VievModelBase
     {
         private readonly IDBRepository _clientRepository;

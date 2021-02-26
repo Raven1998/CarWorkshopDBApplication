@@ -22,7 +22,7 @@
         <Image HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="217" Margin="30,38,0,0" Source="Cars.png"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Cars" VerticalAlignment="Top" Margin="10,196,0,0" Height="62" Width="217" FontWeight="Bold" FontSize="48" TextAlignment="Center"/>
 
-        <ListView ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="300,372,0,0">
+        <ListView ItemsSource="{Binding Cars}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="359" Margin="313,393,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="CarID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>

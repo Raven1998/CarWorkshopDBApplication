@@ -5,6 +5,10 @@ using CarWorkshopDBDataAccess.Repositories;
 using CarWorkshopDBModels;
 namespace CarWorkshopDBApplication.ViewModel
 {
+    /// <summary>
+    /// MainWindow ViewModel class
+    /// Contains biding commands for MainWindow
+    /// </summary>
     public class MainWindowViewModel : Base.VievModelBase
     {
         public MainWindowViewModel()

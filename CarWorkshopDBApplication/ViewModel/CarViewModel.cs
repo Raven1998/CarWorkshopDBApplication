@@ -11,6 +11,10 @@ using Prism.Commands;
 
 namespace CarWorkshopDBApplication.ViewModel
 {
+    /// <summary>
+    /// Cars ViewModel class
+    /// Contains biding commands for Car Window
+    /// </summary>
     public class CarViewModel : Base.VievModelBase
     {
         private readonly IDBRepository _clientRepository;

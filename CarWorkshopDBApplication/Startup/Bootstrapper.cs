@@ -8,6 +8,9 @@ using Prism.Ioc;
 
 namespace CarWorkshopDBApplication.Startup
 {
+    /// <summary>
+    /// Window container definition
+    /// </summary>
     public class Bootstrapper : Prism.Unity.PrismBootstrapper
     {
         protected override DependencyObject CreateShell()

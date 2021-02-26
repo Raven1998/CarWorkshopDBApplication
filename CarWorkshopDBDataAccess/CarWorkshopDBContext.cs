@@ -8,10 +8,12 @@ using CarWorkshopDBModels;
 
 namespace CarWorkshopDBDataAccess
 {
+    /// <summary>
+    /// Entity Framework DbContext class
+    /// </summary>
     public class CarWorkshopDBContext : DbContext
     {
-        //TO DO: 
-        //Add connection string inside app.config for local database and create a local database file - attach file to the project
+       
         public CarWorkshopDBContext() : base("CarWorkshopDBContext")
         {
 

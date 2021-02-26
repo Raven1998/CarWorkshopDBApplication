@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace CarWorkshopDBModels
 {
+    /// <summary>
+    /// Entity Framework Clients Table creation logic
+    /// </summary>
     [Table("Clients")]
     public class Client :ModelBase
     {

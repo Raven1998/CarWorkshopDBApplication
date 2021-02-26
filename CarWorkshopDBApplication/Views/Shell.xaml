@@ -17,7 +17,7 @@
         <Button Content="ADD" Command="{Binding SaveCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="284" Margin="388,242,0,0" Height="34" Background="Black" BorderBrush="White" Foreground="White" FontWeight="Bold" FontSize="20" BorderThickness="3"/>
         <Image HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="217" Margin="30,38,0,0" Source="Clients.png"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Clients" VerticalAlignment="Top" Margin="30,217,0,0" Height="62" Width="217" FontWeight="Bold" FontSize="48" TextAlignment="Center"/>
-        <ListView ItemsSource="{Binding Clients}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="300,372,0,0">
+        <ListView ItemsSource="{Binding Clients}" HorizontalAlignment="Left" Height="114" VerticalAlignment="Top" Width="352" Margin="320,346,0,0">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ClientID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>

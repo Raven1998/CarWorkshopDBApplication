@@ -19,10 +19,10 @@
         <Image HorizontalAlignment="Left" Height="196" VerticalAlignment="Top" Width="217" Margin="30,38,0,0" Source="Mechanics.png"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Mechanics" VerticalAlignment="Top" Margin="10,239,0,0" Height="62" Width="240" FontWeight="Bold" FontSize="48" TextAlignment="Center"/>
 
-        <ListView ItemsSource="{Binding Mechanics}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="300,372,0,0">
+        <ListView ItemsSource="{Binding Mechanics}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="352" Margin="320,361,0,0">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ClientID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
+                    <GridViewColumn Header="MechanicID" DisplayMemberBinding="{Binding ID}"></GridViewColumn>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
                     <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"></GridViewColumn>
                     <GridViewColumn Header="Phone" DisplayMemberBinding="{Binding PhoneNumber}"></GridViewColumn>

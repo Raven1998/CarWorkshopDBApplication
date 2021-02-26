@@ -8,6 +8,9 @@ using System.Runtime.CompilerServices;
 
 namespace CarWorkshopDBApplication.ViewModel.Base
 {
+    /// <summary>
+    /// Class includes ViewModel methods required in all ViewModels
+    /// </summary>
     public abstract class VievModelBase : INotifyPropertyChanged
     {
         protected VievModelBase()

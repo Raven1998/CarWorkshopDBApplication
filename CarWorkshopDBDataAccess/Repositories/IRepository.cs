@@ -8,6 +8,9 @@ using CarWorkshopDBModels;
 
 namespace CarWorkshopDBDataAccess.Repositories
 {
+    /// <summary>
+    /// This interface includes declaration of all used repository methods in Database
+    /// </summary>
     public interface IDBRepository
     {
 

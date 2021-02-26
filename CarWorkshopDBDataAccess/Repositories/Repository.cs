@@ -8,6 +8,9 @@ using CarWorkshopDBModels;
 
 namespace CarWorkshopDBDataAccess.Repositories
 {
+    /// <summary>
+    /// Repository class contains implementation for all methods used in database
+    /// </summary>
     public class Repository : IDBRepository
     {
         private readonly CarWorkshopDBContext _context;

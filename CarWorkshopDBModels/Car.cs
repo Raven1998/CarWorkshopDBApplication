@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace CarWorkshopDBModels
 {
+    /// <summary>
+    /// Entity Framework Cars Table creation logic
+    /// </summary>
     [Table("Cars")]
     public class Car:ModelBase
     {
